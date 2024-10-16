@@ -1,15 +1,17 @@
 @import "variables";
 
+.small, .large{
+  transition: all 2s ease;
+}
+
 .small:hover {
   padding: 2rem;
   background-color: $paleta-pastel-6;
   font-family: cursive;
-  transition: all 2s ease-in-out;
 }
 
 .large:hover {
-    padding: 5rem;
-    background-color: $paleta-pastel-7;
-    font-family: cursive;
-    transition: all 2s ease-in-out;
+  padding: 5rem;
+  background-color: $paleta-pastel-7;
+  font-family: cursive;
 }
