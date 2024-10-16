@@ -20,9 +20,9 @@ const data = [
   },
   {
     id: 4,
-    language: "Go",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png",
+    language: "Python",
+    img: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg",
     btnName: "Git",
   },
-]
-export default data
+];
+export default data;
