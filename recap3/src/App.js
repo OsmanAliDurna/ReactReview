@@ -1,6 +1,5 @@
 import Counter from "./classComponent/Counter";
 import Event from "./events/Event";
-import UseStateCounter from "./useState/UseStateCounter";
 import UseStateObject from "./useState/UseStateObject";
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
     <div>
       <Event />
       <Counter />
-      <UseStateCounter />
       <UseStateObject />
     </div>
   );

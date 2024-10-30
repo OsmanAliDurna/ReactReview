@@ -12,7 +12,6 @@ const UseStateObject = () => {
 
   const handleSwap = () => {
     setToggle(!toggle);
-    console.log(toggle);
     if (toggle) {
       setKisi({
         ad: "Canan",
@@ -30,9 +29,10 @@ const UseStateObject = () => {
     }
   };
 
-  console.log(kisi);
   return (
     <div>
+      {toggle && <UseStateCounter />}
+
       <h1>Personel Formu</h1>
       <h2>Adi:{kisi.ad}</h2>
       <h3>Meslegi:{kisi.meslek}</h3>
@@ -42,9 +42,11 @@ const UseStateObject = () => {
       <button onClick={() => setKisi({ ...kisi, ad: "Mehmet" })}>
         isim degistir
       </button>
+
       <button onClick={() => setKisi({ ...kisi, meslek: "Tester" })}>
         Meslek degistir
       </button>
+
       <button onClick={() => setKisi({ ...kisi, yas: kisi.yas + 1 })}>
         Yas Arttir
       </button>
@@ -54,8 +56,6 @@ const UseStateObject = () => {
       </button>
 
       <button onClick={handleSwap}>Swap</button>
-
-      {toggle && <UseStateCounter />}
     </div>
   );
 };
