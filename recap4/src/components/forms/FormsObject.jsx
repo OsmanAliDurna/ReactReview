@@ -3,37 +3,41 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import { useState } from "react";
 
-function Forms() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function FormsObject() {
+  const [obj, setObj] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const { username, email, password } = obj;
 
   const handleUsername = (e) => {
-    setUsername(e.target.value);
+    setObj({ ...obj, [e.target.id]: e.target.value });
   };
 
   const handleEmail = (e) => {
-    setEmail(e.target.value);
+    setObj({ ...obj, [e.target.id]: e.target.value });
   };
 
   const handlePassword = (e) => {
-    setPassword(e.target.value);
+    setObj({ ...obj, [e.target.id]: e.target.value });
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
     alert(`
       username: ${username},
       email: ${email},
       password: ${password}
       `);
 
-    setUsername("");
-    setEmail("");
-    setPassword("");
-
-    // const res1 = axios.post("url", { username, email, password });
-    // const res2 = fetch.post("url", {method: "POST", data:{ username, email, password }}).then()
+    setObj({
+      username: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (
@@ -81,4 +85,4 @@ function Forms() {
   );
 }
 
-export default Forms;
+export default FormsObject;
