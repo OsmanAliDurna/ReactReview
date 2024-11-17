@@ -1,7 +1,4 @@
 import { useState } from "react";
-import CardFooter from "./CardFooter";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 
 const CardContainer = ({ data }) => {
@@ -13,18 +10,23 @@ const CardContainer = ({ data }) => {
 
   return (
     <div>
-      <Form.Control className="w-50 m-auto" placeholder="Search a player" />
-      <Row onClick={handleSwap}>
+      <Card className="w-25 mx-auto my-1 row" onClick={handleSwap}>
         {toggle ? (
-          <Card>
-            <Card.Img variant="top" src={data.img} />
-          </Card>
+          <Card.Img className="img" variant="top" src={data.img} />
         ) : (
-          <div>{data.statistics}</div>
+          <ul className="m-auto">
+            {data.statistics.map((item, i) => (
+              <li className="list-unstyled h5 " key={i}>
+                {" "}
+                🏀{item}
+              </li>
+            ))}
+          </ul>
         )}
-      </Row>
-
-      <CardFooter data={data.name} />
+        <Card.Footer>
+          <Card.Title>{data.name}</Card.Title>
+        </Card.Footer>
+      </Card>
     </div>
   );
 };
