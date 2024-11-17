@@ -1,10 +1,32 @@
-import { useState } from "react"
+import axios from "axios";
+import { useState } from "react";
 
-const AddTutorial = () => {
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
+const AddTutorial = ({ URL, getData }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
-  const handleSubmit = (e) => {}
+  // const [newData, setNewData] = useState({
+  //   title: "",
+  //   description: "",
+  // });
+
+  const postTutorial = async (newData) => {
+    const res = await axios.post(URL, newData);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newData = {
+      title,
+      description,
+      // title: title,
+      // description: description,
+    };
+    postTutorial(newData);
+    setTitle("");
+    setDescription("");
+    getData();
+  };
 
   return (
     <div className="container text-center mt-4">
@@ -43,7 +65,7 @@ const AddTutorial = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default AddTutorial
+export default AddTutorial;
