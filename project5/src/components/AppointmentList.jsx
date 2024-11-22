@@ -5,21 +5,17 @@ import { TiDeleteOutline } from "react-icons/ti";
 
 const AppointmentList = ({ setAppData, appData }) => {
   const handleDelete = (id) => {
-    setAppData(appData.filter((item) => item.id !== id));
+    let deleted = appData.filter((item) => item.id !== id);
+    setAppData(deleted);
+    localStorage.setItem("list", JSON.stringify(deleted));
   };
 
   const handleToggle = (id) => {
-    setAppData(
-      appData.map((item) =>
-        item.id === id ? { ...item, consulted: !item.consulted } : item
-      )
+    let consulted = appData.map((item) =>
+      item.id === id ? { ...item, consulted: !item.consulted } : item
     );
-    
-    localStorage.setItem(
-      appData.map((item) =>
-        item.id === id ? { ...item, consulted: !item.consulted } : item
-      )
-    );
+    setAppData(consulted);
+    localStorage.setItem("list", JSON.stringify(consulted));
   };
 
   return (

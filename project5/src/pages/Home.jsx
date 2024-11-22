@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AppointmentList from "../components/AppointmentList";
 import Doctors from "../components/Doctors";
 import { appointmentData } from "../helper/data";
 
 const Home = () => {
-  const [appData, setAppData] = useState(appointmentData);
+  const [appData, setAppData] = useState(
+    JSON.parse(localStorage.getItem("list")) || []
+  );
+
+  useEffect(() => {
+    appData.length > 0
+      ? setAppData(JSON.parse(localStorage.getItem("list")))
+      : setAppData(appointmentData);
+  }, []);
 
   return (
     <main className="text-center mt-2">

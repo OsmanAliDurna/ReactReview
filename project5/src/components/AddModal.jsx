@@ -20,7 +20,9 @@ const AddModal = ({ drName, show, handleClose, appData, setAppData }) => {
       doctor: drName,
     };
 
-    setAppData([...appData, newData]);
+    let added = [...appData, newData];
+    setAppData(added);
+    localStorage.setItem("list", JSON.stringify(added));
     handleClose();
   };
 
